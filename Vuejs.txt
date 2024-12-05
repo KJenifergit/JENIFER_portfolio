@@ -1,0 +1,236 @@
+Vuejs-js framework for BUILDING USER INTERFACES
+Vue- does not focus on routing and HTTP requests.
+VueX npm package for complex state management,Vue router for routing,Vuetify for UI elements.
+Add a script tag with a reference to vue.js and start building Vue applications.
+Vue is also component based architecture.
+vue is declarative basically we want to tell view how UI should looks like for that DOM(Data object Model)will reflect for that.
+vue is versatile.   
+Vue uses HTML like format so it is called as Single File Component(SFC)
+
+
+/**vue cli
+npm install -g @vue/cli
+vue create <project-name>/**
+
+
+API OPTIONS:
+
+Option API---data(),method(),Mounted() and "this" should use---code start with <script>
+Composition API----"ref"should use,code start with <script setup>
+
+
+
+Project structure,SFC,Binding (Text,HTML,Attribure,Classes,V-bind,styles),Conditional Rendering
+
+
+
+
+.mount is used to tell the vue to access the interpolationn{{message}}
+
+
+
+
+Vue FILE STRUCTURE
+---------------------
+
+<template>
+<script>
+<style>
+
+EXAMPLE
+-------------
+
+<template></template>
+<script>
+	export default{
+		name:'component-name',
+	}
+</script>
+<style scoped></style>   ///" scoped " means it will applies only to that same comonent html file only  not other file.
+
+
+--------------------
+
+BINDING TEXT ,HTML,CLASSES,STYLES,ATTRIBUTES,SHORTHAND
+-------------------------
+
+for directive -----use "v-text"
+v-text should unique not same as interpolation    <div v-text="channel"></div>
+v-html                                             <div v-html="channel"></div>
+                                                but in script for v-html   ----   channel="<b>codevolution</b> we have to use like this for v-html     
+V-BIND --also HELPS to bind boolean attributee      <h2 v-bind:id="headingid">Heading</h2>  
+                                                    in script   headingid:'heading'   
+
+
+
+-------------
+CONDITIONAL RENDERING
+-----------
+
+* v-if
+* v-else
+* v-else-if
+* v-show
+
+
+---------
+List Rendering
+--------------
+
+* v-for-------using this directive we can able to display *Array of Strings * Array of Objects  * Array of arrays
+              *Bockof HTML elements *Object key value pairs.
+
+
+
+--------------
+Key attribute
+------------------
+    it is special attribute -used as hint for vue's virtual DOM algorithm to identify nodes when diffing 
+the new list of nodes against the old list.
+     when we are uisng v-for directive ----key attribute should be unique value in each iteRATION .KEY="NAME"
+
+
+---------------
+METHODS
+--------------------
+
+
+in export app we are creating one more property (methods) which is simply called as object
+functions are called as methods because we assosiated with object
+
+
+#####Won't use arrow function in methods(if we arrow function the binding will be lost)
+
+#### data property can access in methods using "this"(eg  this.abcd)
+
+
+
+---------------
+EVENT HANDLING
+-----------
+
+v-on should use
+shorthand syntax---@
+
+$event is used to event obeject will logged in to console
+
+
+
+-----------------
+FORM HANDLING
+---------------
+
+for capture user inputs---we have some of handler
+
+*Inputs
+*Textareas
+*Single select dropdown control
+*Multi select control
+*Checkbox
+*Checkbox group
+*Radio
+*Submit form data
+
+
+##in vue file----form controls will be present in template block
+                 form data will be present in script block 
+
+
+
+***v-model (directive)---for two-way binding
+
+
+---------------
+COMPUTED PROPERTIES-----computed:{
+			fullNAame(){
+				return '${this.firstname}${this.lastname}'
+				}
+		            }
+			}
+----------------
+
+
+COMPUTED SETTER
+------------------
+
+
+------------
+WATCHERS
+
+ ------allows to watch any data or computed property and execute some code
+	 in response to changes in the value.
+--------We can use watchers than computed properties
+
+
+watch:{
+ firstName(value){
+	this.fullName=value+' '+this.lastname
+ },
+ lastName(value){
+	this.fullName=this.firstName+' '+value
+ }
+}
+
+
+--------------
+
+******Components*************
+---------------------------
+Vue follows COMPONENT BASED ARCHITECture
+
+---------
+Component props------it is custom attribute to specify  name props--simply add name and it is dynamic
+
+--------
+NON_PROP ATTRIBUTE
+--------------------
+
+  --------it is an attribute that is passes to a component ,but does not have a 
+      corresponding property defined in the props defined
+----------eg--id,class,and style
+
+
+
+
+-----------PROVIDE AND INJECT APIS*****
+----------      The 2 APIs provide a way to pass data through componnet tree without having to pass down 
+                 props manually at every level.'
+-------------2 steps------1.provide the value in component
+--------------------------2.inject the value in the component
+
+
+
+--------------
+COMPONENT EVENTS
+----------------
+POPUp example:---
+
+
+emits----this is an array of events and  componnet can emit to the parent componnet
+-------------
+
+
+
+Slots------it is also allow to reuse the component
+	   they allow parent componnet to control the content inside the child content.
+-----------
+-------props----allow to reuse componnet by passing in differnet data.
+------------------here child will control the parent
+
+
+
+
+vue &HTTP
+------------
+
+axios****
+
+
+
+
+
+--------
+
+
+
+
