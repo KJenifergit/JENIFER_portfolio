@@ -1,0 +1,34 @@
+Amazon MQ(MESSAGE QUEUES):( suppots Apache ActiveMQ,RabbitMQ) QUEUES---Waiting till their turn to be attenedr proccessed..
+	--->it is a managed message broker service(it is software app that enables applications,systems ,services  to communicate with each other
+             and exchanging information using various programming languages, OS and protocals)
+	---> broker(it act as a third party  vendor who hepls us to achieve our goal)
+	---> creating and connecting broker is slightly differ for each broker engine types (Appache activeMQ and RabbitMQ)
+
+Basic elements in MQ:
+
+	1--->Broker  (basic building block)
+	          Types    1.(Single-instance( one broker in 1 AZ's & communicate with EFS and EBS volume)) 
+			   2.Active /Standby(2 broker in 2 different AZ's and communicate with EFS)
+	2---> Configuration---contains all setting in XML format
+                           ---A configuration can be applied to one or more brokers
+	3----->Users and groups--->user is aperson/appliacation that access queues and topics and group is a semantic level)
+	4-----> storage----> suppors EBS and EFS
+                       ---->By default ,Active MQ brokers use EFS for broker Storage
+			---> use EBS for m5(size) broken instance type 
+
+
+How amazonMQ works: [benefits-you can migrate applications and messagages without rewriting code,  reduce costs(pay only for broker usage and storage)]
+	-->MQ broker can use any type
+	-->you can access brokers using various programming languages that  ActiveMQ supports and can use common protocals and messaging Apis.
+        --->
+
+
+
+
+
+
+
+
+
+
+

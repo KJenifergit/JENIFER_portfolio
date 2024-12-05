@@ -1,0 +1,108 @@
+Amazon Elastic cache: cache-it stores a memory (eg .login  username &password emaill save and it gives whenever we want)
+	--> It offers fully managed Redis and MEmcached for your most demanding applications that requires sub-millisecond response times.
+	--> IT allows to set up ,run and scale popular open-source compatible in -memory dataa stores in the cloud. 
+	--> Amazon ElastiCache is a web service that makes it easy to set up, manage, and scale a distributed in-memory data store 
+	    or cache environment in the cloud. 
+	--> It provides a high-performance, scalable, and cost-effective caching solution. At the sametime it helps remove the 
+	    complexity associated with deploying and managing a distributed cache environment
+	--> Amazon ElastiCache works with both the Redis and Memcached (Memcached is used to speed up dynamic web applications by 
+           reducing the database load.)engines.
+	-->It offers fully managed Redis and memcached for most depanding applicactions that requires sub millisecond response time
+	-->Two types of Engines---REDIS,MEMCACHED
+
+
+BENEFITS:
+
+	--> Microsecond speed
+	--> fully managed
+	--> High availability
+	--> Security and compilance
+	--> Fully compatible with Redis and Memcached
+	--> Cost optimization
+
+BENEFITS OF  ADDING CACHE SERVICES: (stores all datas in memory only)
+
+	--> improve latency
+	--> increased  read capacity 
+	--> scales horizontally & vertically
+	--> scales to multiple region
+ 
+
+
+Sign in to AWS Console: 
+	Log in to your AWS Management Console using your credentials.
+
+Navigate to ElastiCache:
+	 Go to the "Services" menu and select "ElastiCache" under the "Database" section.
+
+Create a Cache Cluster:
+	Click "Create" to start the process of creating a cache cluster.
+	Choose the cache engine you want to use: Redis or Memcached.
+	Configure the settings for your cache cluster, including node type, number of nodes, and other optional settings.
+	Configure the network settings, including Virtual Private Cloud (VPC) and subnet.
+	Configure advanced settings like parameter groups, encryption, and maintenance window.
+
+Configure Security and Access:
+	Set up security groups to control access to your cache cluster.
+	Optionally, enable encryption at rest and in transit for added security.
+
+Review and Launch:
+	Review your configuration settings and make sure everything is set up correctly.
+	Click "Create" to launch the cache cluster.
+
+Wait for the Cluster to be Available:
+	It may take a few minutes for your cache cluster to be created and become available.
+
+Connect to the Cache Cluster:
+	Once the cache cluster is available, you can find its endpoint in the ElastiCache console.
+	Update your application's code to use this endpoint to connect to the cache cluster.
+
+Use the Cache in Your Application:
+	Depending on whether you're using Redis or Memcached, update your application code to use the appropriate cache commands or APIs.
+	You can store and retrieve data in the cache, improving the performance of your application.
+
+Implement Cache Invalidation and Expiry:
+	Implement a cache invalidation strategy to ensure that cached data remains accurate and up to date.
+	Set expiration times for cache entries to control how long data is stored in the cache.
+
+Monitor and Optimize:
+	Monitor the performance and health of your cache cluster using Amazon CloudWatch metrics and logs.
+	Consider scaling your cache cluster if your application's demand increases.
+	Optimize your cache usage by analyzing cache hit rates and tuning your cache settings.
+
+Scaling and Maintenance:
+If needed, you can scale your cache cluster by adding or removing nodes.
+Perform maintenance tasks like software updates and patches as required
+	
+
+
+Caching -REDIS
+
+`-simple ,flexible API 
+ -Built in support for replication and scaling
+ -In memory data structures
+ 
+
+usecases:
+
+ -leaderboards
+ -streaming
+ -pub/sub 
+
+
+
+
+caching-memcached
+
+ -simple key-value caching
+ -ultrafast performance 
+
+
+
+pay per use
+
+	Data storage is billed in GB-hours
+	Requests are billed in ElasticCache Processsing Units(ECPUs)
+		
+
+

@@ -1,0 +1,24 @@
+settingss-
+read /write capacity settings
+	--ondemand---scalability for read and write data
+	--provisioned--- no scalability (fixed units to read and write data)
+		read capacity
+		write capacity
+secondary indexes
+	create local index--its like sort key(it  will created while creating table)
+	create global index--any time we can create(its not free)
+		 need additional space, pay for additional storage when query on GSi
+
+Table class
+dynamodb stream on/off
+TIMe to Live -on/off
+
+
+
+ Global table--while we are creating table we are having specific region,if people in other region need to access table
+
+is the same table havine in other region and it is automatically cross them
+
+
+   Replicas--
+

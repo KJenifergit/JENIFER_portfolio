@@ -1,0 +1,6 @@
+ngfor
+ngswitch
+ngclass
+ngModel
+wo way binding symbol =[(ngMode)]="ng"
+ngIf

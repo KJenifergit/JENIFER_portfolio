@@ -1,0 +1,128 @@
+	-->Amazon DynamoDB is a fully managed NoSQL(no structured query language) database service that provides fast and predictable performance with seamless scalability
+	-->DynamoDB also offers encryption at rest(Encryption at rest refers to the practice of protecting data that is stored on a device, such as a hard drive or a smartphone,
+		 by encoding it using encryption algorithms), which eliminates the operational burden and complexity involved in protecting sensitive data
+	-->With DynamoDB, you can create database tables that can store and retrieve any amount of data and serve any level of request traffic.
+	-->You can scale up or scale down your tables' throughput capacity without downtime or performance degradation
+	--> It allows you to create full backups of your tables for long-term retention and archival for regulatory compliance needs
+	-->You can create on-demand backups and enable point-in-time recovery for your Amazon DynamoDB tables. Point-in-time recovery helps protect your tables 
+		from accidental write or delete operations. With point-in-time recovery, you can restore a table to any point in time during the last 35 days.
+	-->DynamoDB allows you to delete expired items from tables automatically to help you reduce storage usage and the cost of storing data that is no longer relevant.
+
+
+Amazon DynamoDB
+Amazon Aurora
+Amazon Relational Database Service
+Amazon Timestream
+Amazon Neptune
+Amazon Quantum Ledger Database (QLDB)
+Amazon RDS on VMware
+
+
+
+----------High availability and durability:
+
+	-->DynamoDB automatically spreads the data and traffic for your tables over a sufficient number of servers to handle your throughput and storage requirements,
+		 while maintaining consistent and fast performance.
+	-->All of your data is stored on solid-state disks (SSDs) and is automatically replicated across multiple Availability Zones in an AWS Region, providing built-in
+		 high availability and data durability. 
+	-->You can use global tables to keep DynamoDB tables in sync across AWS Regions.
+
+------------Naming rules:
+
+• All names must be encoded using UTF-8 and are case sensitive.
+• Table names and index names must be between 3 and 255 characters long, and can contain only the
+following characters:
+• a-z
+• A-Z
+• 0-9
+• _(underscore)
+• -(dash)
+• .(dot)
+• Attribute names must be at least one character long, and less than 64 KB in size.
+
+
+-------Table limits
+
+• Table size – There is no practical limit on table size. Tables are unconstrained (limited)in terms of the number
+of items or the number of bytes.
+• Number of tables – For any AWS account, there is an initial quota of 2,500 tables per AWS Region.
+• Page size limit for query and scan – There is a limit of 1 MB per page, per query or scan. If your
+query parameters or scan operation on a table result in more than 1 MB of data, DynamoDB returns
+the initial matching items. It also returns a LastEvaluatedKey property that you can use in a new
+request to read the next page.
+
+
+-------Indexes
+
+• Local secondary indexes (LSIs) – You can define a maximum of five local secondary indexes. LSIs are
+primarily useful when an index must have strong consistency with the base table.
+• Global secondary indexes (GSIs) – There is a default quota of 20 global secondary indexes per table.
+• Projected secondary index attributes per table – You can project a total of up to 100 attributes
+into all of a table's local and global secondary indexes. This only applies to user-specified projected
+attributes
+
+----------Partition keys
+
+• The minimum length of a partition key value is 1 byte. The maximum length is 2048 bytes.
+• There is no practical limit on the number of distinct partition key values, for tables or for secondary
+indexes.
+• The minimum length of a sort key value is 1 byte. The maximum length is 1024 bytes.
+• In general, there is no practical limit on the number of distinct sort key values per partition key value.
+The exception is for tables with secondary indexes
+
+-----------Limits for commonly used data types
+
+• String – The length of a string is constrained by the maximum item size of 400 KB. Strings are Unicode
+with UTF-8 binary encoding.
+• Number – A number can have up to 38 digits of precision, and can be positive, negative, or zero.
+• Binary – The length of a binary is constrained by the maximum item size of 400 KB. Applications that
+work with binary attributes must encode the data in base64 encoding before sending it to DynamoDB.
+
+----------Items, attributes, and expression parameters
+
+The maximum item size in DynamoDB is 400 KB, which includes both attribute name binary length
+(UTF-8 length) and attribute value binary lengths (UTF-8 length). The attribute name counts towards the
+size limit.
+There is no limit on the number of values in a list, map, or set, as long as the item that contains the
+values fits within the 400-KB item size limit.
+For expression parameters, the maximum length of any expression string is 4 KB.
+
+
+-----------Core components of Amazon DynamoDB
+
+In DynamoDB, tables, items, and attributes are the core components that you work with.
+ A table is a collection of items, and each item is a collection of attributes. DynamoDB uses primary keys to uniquely
+identify each item in a table and secondary indexes to provide more querying flexibility. You can use
+DynamoDB Streams to capture data modification events in DynamoDB tables.
+
+
+Tables, items, and attributes
+
+The following are the basic DynamoDB components:
+
+• Tables – Similar to other database systems, DynamoDB stores data in tables. A table is a collection of
+data. For example, see the example table called People that you could use to store personal contact
+information about friends, family, or anyone else of interest. You could also have a Cars table to store
+information about vehicles that people drive.
+• Items – Each table contains zero or more items. An item is a group of attributes that is uniquely
+identifiable among all of the other items. In a People table, each item represents a person. For a Cars
+table, each item represents one vehicle. Items in DynamoDB are similar in many ways to rows, records,
+or tuples in other database systems. In DynamoDB, there is no limit to the number of items you can
+store in a table.
+• Attributes – Each item is composed of one or more attributes. An attribute is a fundamental data 
+element, something that does not need to be broken down any further. For example, an item in a 
+People table contains attributes called PersonID, LastName, FirstName, and so on. For a Department
+table, an item might have attributes such as DepartmentID, Name, Manager, and so on. Attributes in
+DynamoDB are similar in many ways to fields or columns in other database systems.
+
+-----------------------Data at rest is stored and is usually protected by a firewall or anti-virus software. Though these methods of
+ protection for data at rest is good, complete safety requires adding an additional layer of defense. This is where encryption at rest comes to play.-----------------
+Generally speaking, there are two types of data: data in motion and data at rest. Data in motion (or “active data”) is data that you most likely use on a daily basis. 
+It is usually stored on a database that’s accessed through apps or programs. Data at rest is stored and is usually protected by a firewall or anti-virus software-------------
+
+----------------------How Encryption at Rest Works
+
+Simply put, data encryption is the process of translating one form of data into another form of data that unauthorized users can’t decrypt. For example, you saved a copy of a paid invoice on your server
+ with a customer’s credit card information. You definitely don’t want that to fall into the wrong hands. By encrypting data at rest, you’re essentially converting your customer’s sensitive data into another
+ form of data. This usually happens through an algorithm that can’t be understood by a user who does not have an encryption key to decode it. Only authorized personnel will have access to these files, thus ensuring that your data stays secure.
+

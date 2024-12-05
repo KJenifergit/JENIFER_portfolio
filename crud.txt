@@ -1,0 +1,63 @@
+// store.js
+import { createStore } from 'vuex';
+// import axios from 'axios';
+
+ 
+const store = createStore({
+state:{
+  students: [
+    { id: 1, name: 'Jeni', age: 18, grade: 'A' },
+    { id: 2, name: 'Janu', age: 15, grade: 'B' },
+    { id: 3, name: 'Prasanna', age: 19, grade: 'A+' },
+    { id: 4, name: 'Sneha', age: 13, grade: 'O' },
+    { id: 5, name: 'Thirisha', age: 14, grade: 'A+' },
+    { id: 6, name: 'Sarala', age: 19, grade: 'B+' },
+    
+  ],
+},
+
+mutations :{
+//    SET_ITEMS(state, items) {
+//         state.items = items;
+//         console.log(items)
+//     },
+  ADD_STUDENT(state, student) {
+    state.students.push(student);
+  },
+  UPDATE_STUDENT(state, updatedStudent) {
+    const index = state.students.findIndex(student => student.id === updatedStudent.id);
+    if (index !== -1) {
+        state.students.splice(index,1,updatedStudent)
+    }
+  },
+  DELETE_STUDENT(state, studentId) {
+    state.students = state.students.filter(student => student.id !== studentId);
+  },
+},
+
+actions:  {
+    // async fetchdata({ commit }) {
+    //     try {
+    //     const response = await axios.get('./student.json'); 
+    //     console.log(response.data)
+    //     commit('SET_ITEMS', response.data);
+    //     } catch (error) {
+    //     console.error('Error fetching items:', error);
+    //     }
+    // },
+  addStudent({ commit ,state}, student) {
+    const id=state.students.length+1;
+    student.id=id;
+    commit('ADD_STUDENT', student);
+  },
+  updateStudent({ commit }, updatedStudent) {
+    commit('UPDATE_STUDENT', updatedStudent);
+  },
+  deleteStudent({ commit }, studentId) {
+    commit('DELETE_STUDENT', studentId);
+  },
+}
+})
+export default store;
+
+

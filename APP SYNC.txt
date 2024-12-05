@@ -1,0 +1,33 @@
+GraphQL
+
+	It is query language for APIs and runtime for fufilling those queries with your existing data.
+
+
+MAIN GRAPHQL OPERATIONS
+
+1. Query---fetch data from GraphQl API---Get
+2.Mutation---change data -create/update/delete
+3.Subscription ---Watch data for changes in Real time
+
+
+
+APP SYNC---it securely accesses and combines data from databases,APIs and other backend systems
+	    into a single GraphQL endpoints
+
+	Amplify---It automatically updates the data in realtime and frontend
+
+APPSYNC Benefits
+
+	Build fast backends with GrahQL
+	Security out of the box
+	Multiple Datasources
+	Automatically resolves merge conflicts
+
+---Create schema----creat queries ,mutation,click create resources
+---connect to diff data sources
+---updates data in realtime and in different sources
+
+
+create API---custom schemaa---next create  
+  
+

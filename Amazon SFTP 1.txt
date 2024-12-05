@@ -1,0 +1,140 @@
+
+Amazon File transfer:
+It supports 3 file transfer protocal
+      It supports 3 file transfer protocals
+		*SFTP---file transfer over secure shell(ssH)
+		*FTPS---File tarnsfer protocal with TLS encryption
+		*FTP---unencrypted file transfer protocal
+
+Amazon SFTP:(Secure File Transfer Protocal)
+
+
+	-->It allows to transfer files securely over the internet using SFTP.
+	-->It provides way to exchange file between systems in secure manner(confidentialliy,integrity,authemticatoion,privacy).
+	-->It enables you to create SFTP servers in the cloud,which can be used to securely transfer files to and from Amazon S3
+	      buckets and EFS file system among other AWS supported AWS services.
+	-->It is mostly used in business and organizations that need to securely exchange data with external clients,internal systems using SFTP protocal .
+	-->Fully managed support for file transfer protocals in and out of S3.
+	-->Seamlessly migrate file transfer workloads to AWS.
+	-->IAM roles are used to garnt access to S3 buckets from file transfer in a secure way.
+
+        --->AWS Transfer Family is a secure transfer service that enables you to transfer files into and out of AWS storage services.  
+	-->AWS Transfer Family supports transferring data from or to the following AWS storage services.
+
+			Amazon Simple Storage Service (Amazon S3) storage. 
+			Amazon Elastic File System (Amazon EFS) Network File System (NFS) file systems. 
+
+	--->AWS Transfer Family supports transferring data over the following protocols:
+
+				Secure Shell (SSH) File Transfer Protocol (SFTP)
+				File Transfer Protocol Secure (FTPS)  (For FTP and FTPS data connections, the port range that Transfer Family uses to 
+						establish the data channel is 8192–8200.)
+				File Transfer Protocol (FTP)
+				Applicability Statement 2 (AS2)
+
+	--->File transfer protocols are used in data exchange workflows across different industries such as financial services, healthcare, advertising, and retail, among others. 
+		Transfer Family simplifies the migration of file transfer workflows to AWS
+
+Benefits:
+
+	1. **Security**: It uses the Secure Shell (SSH) protocol to encrypt data during transmission, ensuring the confidentiality and integrity of your files.
+
+	2. **Managed Service**: AWS takes care of the underlying infrastructure, reducing the operational overhead of managing your SFTP servers.
+
+	3. **Scalability**: You can easily scale your SFTP server resources up or down based on your needs, without worrying about hardware constraints.
+
+	4. **Integration**: Amazon SFTP can be integrated with other AWS services like Amazon S3, Amazon EFS, and AWS Lambda, making it a versatile solution for file transfers within the AWS ecosystem.
+
+	5. **Logging and Monitoring**: It provides detailed logging and monitoring capabilities, allowing you to track file transfer activities.
+
+Follow the below steps to create an SFTP server.
+        first--create bucket 
+	after creating bucket attach IAM role and policy
+	attach SFTP policy 
+	Afer creating bucket attach IAM role and policy
+
+
+	1. Search for SFTP on the search bar. You should see the following screen:
+	2. Click on AWS Transfer Family. You should see the AWS Transfer Family dashboard:
+	3. Click on the Create server button. You will be asked to choose the protocols as shown below:
+	4. Select SFTP protocol and click on the Next button. You will be asked to select an identity provider as shown below:
+	5. Select Service Manage and click on the Next button. You will be asked to select an endpoint as shown below:
+	6. Select endpoint type(publicly accessible,VPC HOSTED), hostname, and click on the Next button. You will be asked to choose a domain(storage(s3,EFS)to store and access the data over selected protocal) as shown below:
+	7. Select Amazon S3 and click on the Next button. You will be asked to configure additional details (cloud watch logging,server host key) as shown below:
+	8. Provide relevant details and click on the Next button. You should see the following screen:
+	9. Review all the settings and click on the Create server button. Once the SFTP server has been created successfully, you should see the following screen:
+	10. As you can notice, there are no users created yet, so click on the button Add User for creating users who will be accessing this sftp service. Next, click on your SFTP server. You should see the following screen:
+	11. Now, click on the Add user button. You should see the user configuration page:
+  	12. Here, provide your desired SFTP username, select the SFTP role we have created earlier, and select the S3 bucket we created earlier. You will also need to provide an SSH public key of the remote machine from where you want to access the SFTP server.
+
+To generate an SSH key on the remote machine, run the following command:
+
+ssh-keygen -P "" -f "sftp-key"
+
+You should see the following output:
+
+Generating public/private rsa key pair.
+Your identification has been saved in sftp-key.
+Your public key has been saved in sftp-key.pub.
+The key fingerprint is:
+c6:e0:7b:73:5c:1d:4e:e7:3b:ab:6d:69:f1:c9:91:91 vyom@newpc
+The key's randomart image is:
++--[ RSA 2048]----+
+| |
+| |
+| . o o|
+| . o + E |
+| . S . o +|
+| o . . +.|
+| . o o .o*|
+| . o .*+|
+| .+o |
++-----------------+
+
+You can see the generated keys using the following command:
+
+ls -l sftp*
+
+You should see the following output:
+
+-rw------- 1 vyom vyom 1675 Jul 28 16:53 sftp-key
+-rw-r--r-- 1 vyom vyom 392 Jul 28 16:53 sftp-key.pub
+
+Now, print the content of the sftp-key.pub public key:
+
+cat sftp-key.pub
+
+You should see the following output:
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDXeyyWpl5yXA1Zadz3x1Kb6J9XCQXr5d0nLUmOpOhhzdAjlbC3ykx93qu9i0cz3PV07XgcNaJpHm65VdB3nCxrMxYS91qeHm32Cnt3GI4o8TGHyjFBycOh8lo8lVF2OYPelOufEOXW1nZTDpGEW5MOOLM078LcoECskLWTOXyjopGhKqiHu/04cIvjo5YDHUbjoRhEryzDaSWnHe3KCz9q4TtQAAOU3Jc5iZeZH6o7CE3uUlGAppBd6gdvmBnccFBQC36+zmskbYciLDH398XYpg3r9fL4fdJlgjjhCg62m+rMCNtJDApLJdbIN477JloVr4iZcc3ysM16Dl3qTZIJ
+
+Now, copy the above key and paste it into the SFTP server dashboard. Then, click on the Add button. Once the user has been added successfully, you should see the following screen:
+
+
+
+winscp,workflow)
+
+
+	AWS Transfer for SFTP is a fully managed service that enables the transfer of files directly into and out of Amazon S3 using 
+the Secure File Transfer Protocol (SFTP) — also known as Secure Shell (SSH) File Transfer Protocol.
+ 	AWS helps you seamlessly migrate your file transfer workflows to AWS Transfer for SFTP — by integrating with existing authentication systems, and providing DNS
+ routing with Amazon Route 53 — so nothing changes for your customers and partners, or their applications. With your data in S3,
+ you can use it with AWS services for processing, analytics, machine learning, and archiving. Getting started with AWS Transfer for SFTP (AWS SFTP) is easy; 
+there is no infrastructure to buy and setup.
+
+
+
+	FTPS data upload and download: At $0.04/GB, your monthly charge for data uploads and downloads is: $0.04 * 200 GB * 30 days (uploads) + $0.04 * 100 GB * 30 days (downloads) = $240 + $120 = $360. 
+	AWS Transfer Family has predictable, usage-based pricing. You pay only for the protocols enabled on your endpoint(s) in addition to the amount of data (gigabytes) uploaded and downloaded over SFTP/FTPS/FTP,
+ 	or the number of messages sent and received over AS2, or the amount of data processed using AWS Transfer Family Workflows.
+	AS2 is a protocol for transmission of EDI messages What is AS2? AS2 (Applicability Statement 2) is a http based protocol to transmit messages (especially EDI messages) safely, cheaply and quickly.
+
+
+
+
+
+
+	
+	
+	
+	
