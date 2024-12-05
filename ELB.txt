@@ -1,0 +1,48 @@
+ELB-Elastic Load Balancer
+	Load balancers are servers that forward internet traffic to multiple servers(EC2Instances)downstream.
+
+Why we are using the load balancers:
+
+	-->Spread load across multiple downstream instances
+	-->Expose a single point of Access(DNS) to your application
+	--->it will also handle the failures of Downstream instances.
+	--->Do regular health checks to your instances
+	--->Provide SSL tremination (HTTPS) for your websites. 
+
+4 Kinds of LOad balancers:
+
+	Application Load Balancer(HTTTP/HTTPS only)---layer 7
+	Network Load Balancer(ultra high performance,allows for TCP)---layer 4
+	Gateway Load Balancer---Layer 3
+	Classic Load Balancer(retired in 2023)---layer 4 & 7
+-----------------------------
+Autoscaling GRoup
+
+The goal of AutoScaling Group(ASG) is to 
+	Scale out (add EC@ instances)to match an increase load
+	Scale in(remore EC2 instances)to match a decrease load
+	We have to ensure minimum & maximum number of machines running
+	Automatically register new instances to a load balancer
+	Replace unhealthy Instances 
+
+AUTo scaling Groups--Scaling strategies
+
+	Manual scaling--update the size of an ASG manually
+	Dynamic scaling---respond to changing demand
+		=>Simple/Step scaing
+			When a cloudwatch alarm is triggered (eg CPU>70% ),then add 2 units
+			When a cloudwatch alarm is triggered (example CPU<30%)then remove 1
+		=>Target Tracking Scaling
+		=>Scheduled Scaling
+	Predictive scaling-uses ML to predict the future Traffic ahead of time.
+
+
+
+
+
+
+
+
+
+
+  

@@ -1,0 +1,28 @@
+AMAZON SQS
+
+	--Simple Queue Service
+	--Offers Async Message based communucation as opposed to ApI calls
+	
+Message processing Workflow
+
+	--1.A message is published to the queue
+	--2.Message is claimed by the receiver and visibility timeout countdowm starts.
+	--3.Message is processed and deleted by consumer.
+	--4.Visibility timeout expires and message is returned to queue.
+
+Why should use SQS over API calls
+
+	Backpressure control
+	fire and forget
+	eventual guaranteed processing
+	Application Decoupling
+
+
+Benefits of SQS
+
+	Security
+	Durability
+	Availability
+	Scalability
+	reliability
+	Customization

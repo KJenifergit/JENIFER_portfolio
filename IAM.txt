@@ -1,0 +1,61 @@
+IAM-Identity and Access Management
+	---It is a Global service because we are going to create USERS & GROUPS
+	---Root account created by default ---shouldn;t be used or shared
+	---Users are people within your organisation ,and can be grouped.
+
+
+IAM--permissions
+
+	---Users or Groups can be assigned JSON documents called POLICIES
+
+IAM Policies Inheritance:
+
+	we havE to create Inline policy if the user is not in the group
+
+IAM policies Structure:
+
+	Consists of:
+		--Version
+		--ID---optional
+		--Statement:--one r more individual statement(required)
+			consits of 
+				--sid(optional)
+				--Effect--Allow or Deny
+				--Principal---ACcount/user/role to which this policy aplied to is 
+				--Action--List of actions this policy Allows or denies
+				--Resource-list of resoureces to which the actions applied to
+				--Condition:Conditions for when this policy is in effect (optional)
+
+
+IAM Guideliness & Best Practices
+
+->Don't use the root account except for AWS account setup
+->One physical user = one AWS user
+->Assign users to groups and assign permissions to groups
+->Create a strong password policy
+->use an denforce the use of MFA
+->Create and use Roles for giving permissions to AWS services
+->Use Access keys for programmatic Access(CLI/SDK)
+->Audit permissions of your account using IAM credentials Report & IAM Access Advisor.
+->NEver ever share IAM users  &  Access Keys.
+
+
+Shared Responsibility model for IAM
+
+	AWS responsibility:
+
+		Infrastructure (Global network Security)
+		Configuration and vulnerability analysis
+		Compliance Validation
+
+	Yours Responsibility:
+
+		Users,Groups ,Roles,POlicies management and monitoring.
+		Enable MFA on all accounts
+		Rotate all your keys often
+		Use IAM tools to apply appropriate permissions
+		Analyze access patterns & review permissions
+
+
+
+

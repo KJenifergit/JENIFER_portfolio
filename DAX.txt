@@ -1,0 +1,4 @@
+normally we will get response in millisecond in DynamoDb ,f we want to get responses in microseconfd then we can  use DAX
+Dax consists of nodes each nodes is na EC2 machine and a DAx cluster works together with these notes that are inn the cluster to serve some highly available content that's duplicated across all of our nodes so DAX is HORIZONtally scalable that means we can easily  add more nodess to the  cluster  and 
+it is vertically scalable that sense you can throw more CPU or more memory or faster performing memory also at your nodes to improve performance in the vertical dimension (one node serve as master (primary) which is the ledger for writes and others nodes in the cluster  are  serves as a read replicas
+cache---data storage layer that contains a subsert of data.these data will be stored in memory so instead of getting from databases we can get it from memory to  quickly retrieve and serve  content

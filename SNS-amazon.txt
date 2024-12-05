@@ -1,0 +1,44 @@
+SNS-Simple Notification Service
+	----Message Publishing and processing Service(PubSub)
+	----It is responsible for sending message to customer if any the orders.
+	----Allows Fanout (means--one to many relation(i.e..a publisher  to many customers))to millions of customers(Email,HTTP EndPoint,SQS,Texting)
+	----Fully managed and durable with automatic scaling.
+	----CONSIsTS OF ToPICS AND subscriptions
+	-----Appication to Person or Application to Application
+
+
+Application to person--mobile texting,email,etc,
+Application to appliaction --lambda,kinesis  data firehouse,SQS,HTTP
+
+	Kinesis Data firehouse---A subscription owner can subscribe up to 5 Kinesiss data firehouse delivery streams to an Amazon SNS topic.
+
+Features and Capabilities:
+
+	Application-to-application messaging -----
+	Application-to-person notifications
+	Standard and FIFO topics             -----To prevent Message duplication
+	Message archiving, replay, and analytics----
+	Message durability	-----Provide message durability,published data will be stored in multiple region,data centers.
+				     if the server is not available means, it runs the delivery retry policy.to preserve this by creating dead -letter queue.
+	Message attributes
+	Message Filtering
+	Message Security----Server-side encryption protects the messages -- stored in Amazon SNS topics, using encryption keys - by AWS KMS
+
+
+
+how to create SNS
+
+1. create topic----name,encryption,kms
+2.Subscribe topic---To receive messages published to a topic, you must subscribe an endpoint to the topic.
+ 			When you subscribe an endpoint to a topic, the endpoint begins to receive messages 
+			published to the associated topic.
+3. delete the topic & subscription -----Amazon SNS topic is deleted, all subscriptions associated with that topic are also deleted
+4.tagging
+
+
+
+
+PRICING:
+	------You pay based on the number of messages that you publish, the number of notifications that you deliver, 
+		  and any additional API calls for managing topics and subscriptions. Delivery pricing varies by endpoint type
+
